@@ -1,0 +1,14 @@
+{
+  "name": "cypress-express-mark",
+  "version": "1.0.0",
+  "description": "Projeto de teste de ponta a ponta do Mark L",
+  "main": "index.js",
+  "author": "Vanderson Linux",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^16.3.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.6.0"
+  }
+}
