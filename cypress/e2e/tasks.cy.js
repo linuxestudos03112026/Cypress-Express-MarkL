@@ -23,13 +23,29 @@ describe('tarefas', () => {
     })
 
     it.only('Não deve permitir tarefa duplicada', () => {
+
+        cy.request({
+            url:'http://localhost:3333/helper/tasks',
+            method: 'DELETE',
+            body: {name: 'Estudar Javascript'}
+        }).then(response => {
+            expect(response.status).to.eq(204)
+        })
+
         // Dado que eu tenho uma tarefa duplicada
+        cy.request({
+            url: 'http://localhost:3333/tasks',
+            method: 'POST',
+            body: {name: 'Estudar Javascript', is_done: false}
+        }).then(response => {
+            expect(response.status).to.eq(201)
+        })
 
         // Quando faço o cadastro dessa tarefa
         cy.visit('http://localhost:3000')
 
         cy.get('input[placeholder="Add a new Task"]')
-            .type('Ler um livro de node.js')
+            .type('Estudar Javascript')
             
         cy.contains('button', 'Create').click()
 
