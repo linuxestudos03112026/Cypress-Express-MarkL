@@ -6,6 +6,8 @@ module.exports = defineConfig({
     expose: {
       apiUrl: 'http://localhost:3333'
     },
+    viewportwidth: 1920,
+    viewportheight: 1080,
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
