@@ -19,8 +19,10 @@ describe('tarefas', () => {
 
             cy.createTask(taskName)
 
-            cy.contains('main div p', taskName)
+            cy.contains('main div p', 'taskName')
                 .should('be.visible')
+
+            cy.get('#nao-existe', { timeout: 2000 }))
         })
 
         it('Não deve permitir tarefa duplicada', () => {
